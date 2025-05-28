@@ -2,10 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { authRouter } from './routes/auth';
-import { categoriesRouter } from './routes/categories';
-import { newsRouter } from './routes/news';
-import { contactRouter } from './routes/contact';
-import { messagesRouter } from './routes/messages';
+import healthRouter from './routes/health';
 
 // Load environment variables
 dotenv.config();
@@ -22,10 +19,7 @@ app.use(cors({
 
 // Routes
 app.use('/api/auth', authRouter);
-app.use('/api/categories', categoriesRouter);
-app.use('/api/news', newsRouter);
-app.use('/api/contact', contactRouter);
-app.use('/api/messages', messagesRouter);
+app.use('/api/health', healthRouter);
 
 // Error handling middleware
 app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {

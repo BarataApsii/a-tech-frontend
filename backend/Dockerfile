@@ -12,11 +12,14 @@ RUN npm install
 # Copy source code
 COPY . .
 
+# Generate Prisma Client
+RUN npx prisma generate
+
 # Build TypeScript
 RUN npm run build
 
 # Expose port
-EXPOSE 5000
+EXPOSE 3000
 
-# Start the server
+# Start the application
 CMD ["npm", "start"] 
